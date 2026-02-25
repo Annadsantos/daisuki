@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Daisuki Desu</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<div class="coracoes"></div>
+
+<body>
+
+    <div class="question-container" id="questionBox">
+
+        <div id="etapa1">
+            <img src="./src/primeiro.gif" alt="" class="local-gif">
+            <h2>oi, <span>Gui!</span></h2>
+            <button class="btn" onclick="proxima(1)">oi, namorada!</button>
+            <button class="btn" onclick="proxima(1)">quack</button>
+        </div>
+
+        <div id="etapa2" style="display: none;">
+            <img src="./src/segundo.gif" alt="" class="local-gif">
+            <h2><span>bem vindo</span> ao mini sistema que eu criei</h2>
+            <button class="btn" onclick="proxima(2)">novo sistema?</button>
+            <button class="btn" onclick="proxima(2)">não entendi nada</button>
+        </div>
+
+        <div id="etapa3" style="display: none;">
+            <img src="./src/terceira.gif" alt="" class="local-gif">
+            <h2>pode ser confuso no começo, mas espero que tenha ficado <span>bom</span></h2>
+            <button class="btn" onclick="proxima(3)">vambora</button>
+        </div>
+
+        <div id="etapa4" style="display: none;">
+            <img src="./src/quarta.gif" alt="" class="local-gif">
+            <h2>você sabe o que significa <span>"大好き"?</span></h2>
+            <button class="btn" onclick="proxima(4)">não faço ideia</button>
+            <button class="btn" onclick="proxima(4)">talvez...?</button>
+        </div>
+
+        <div id="etapa5" style="display: none;">
+            <img src="./src/quinta.gif" alt="" class="local-gif">
+            <h2>ok… então deixa eu te dar uma <span>dica</span></h2>
+            <button class="btn" onclick="proxima(5)">lá vem...</button>
+        </div>
+
+        <div id="etapa6" style="display: none;">
+            <img src="./src/sexta.gif" alt="" class="local-gif">
+            <h2>não é só “gostar”… é tipo… <span>gostar muito mesmo</span></h2>
+            <button class="btn" onclick="proxima(6)">hm</button>
+            <button class="btn" onclick="proxima(6)">continua</button>
+        </div>
+
+        <div id="etapa7" style="display: none;">
+            <img src="./src/setima.gif" alt="" class="local-gif">
+            <h2><span>大好き</span> significa “eu gosto muito de você”</h2>
+            <button class="btn" onclick="proxima(7)">ah é?</button>
+        </div>
+
+        <div id="etapa8" style="display: none;">
+            <img src="./src/oitava.gif" alt="" class="local-gif">
+            <h2>no meu caso... significa que você virou <span>meu lugar favorito.</span></h2>
+            <button class="btn" onclick="proxima(8)">buaa</button>
+        </div>
+
+        <div id="etapa9" style="display: none;">
+            <h2>então oficialmente… <span>大好き, Gui.</span></h2>
+            <button class="btn" onclick="proxima(9)">buaa</button>
+        </div>
+
+        <div id="etapaFinal" style="display: none;">
+            <img src="./src/gatinhos.gif" alt="" class="local-gif">
+            <h1 class="question">você me <span>ama?</span></h1>
+
+            <div class="button-container">
+                <button class="btn" id="simBtn">sim</button>
+                <button class="btn" id="naoBtn">não</button>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+
+        var boxQuestao = document.getElementById("questionBox");
+
+        function proxima(numero) {
+
+            var atual = document.getElementById("etapa" + numero);
+            var proxima = document.getElementById("etapa" + (numero + 1));
+
+            atual.style.display = "none";
+
+            if (proxima) {
+                proxima.style.display = "block";
+            } else {
+                document.getElementById("etapaFinal").style.display = "block";
+            }
+        }
+
+        var simBtn = document.getElementById("simBtn");
+        var naoBtn = document.getElementById("naoBtn");
+
+        simBtn.addEventListener("click", function () {
+            boxQuestao.innerHTML = `
+        <img src="./src/amoti.gif" class="local-gif">
+        <h2>Eu também <span>amoti</span> muito!</h2>
+    `;
+        });
+
+        naoBtn.addEventListener("mouseover", function () {
+            var x = Math.random() * window.innerWidth * 0.8;
+            var y = Math.random() * window.innerHeight * 0.8;
+
+            naoBtn.style.position = "absolute";
+            naoBtn.style.left = x + "px";
+            naoBtn.style.top = y + "px";
+        });
+
+    </script>
+</body>
+
+</html>
